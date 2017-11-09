@@ -10,16 +10,16 @@
 - Bei Fehlern oder Fragen: Issue oder Pull Request erstellen
 
 ## Inhalt
-- [01 Intro](https://baloise.github.io/ws-angular_slides/slides/01_Intro.html)
-- [02 Grundlagen](https://baloise.github.io/ws-angular_slides/slides/02_Grundlagen.html)
-- [03 Projekt Setup](https://baloise.github.io/ws-angular_slides/slides/03_ProjectSetup.html)
-- [04 Components](https://baloise.github.io/ws-angular_slides/slides/04_Components.html)
-- [05 Architecture](https://baloise.github.io/ws-angular_slides/slides/05_Architecture.html)
-- [06 Templates Grundlagen](https://baloise.github.io/ws-angular_slides/slides/06_Templates_Grundlagen.html)
-- [07 Templates Erweitert](https://baloise.github.io/ws-angular_slides/slides/07_Templates_Erweitert.html)
-- [08 Component Architecture](https://baloise.github.io/ws-angular_slides/slides/08_Component_Architecture.html)
-- [09 Services & HTTP](https://baloise.github.io/ws-angular_slides/slides/09_Services_HTTP.html)
-- [10 Routing](https://baloise.github.io/ws-angular_slides/slides/10_Routing.html)
-- [11 Forms](https://baloise.github.io/ws-angular_slides/slides/11_Forms.html)
-- [12 Testing](https://baloise.github.io/ws-angular_slides/slides/12_Testing.html)
+- [01 Intro](https://nioe.github.io/ws-angular_slides/slides/01_Intro.html)
+- [02 Grundlagen](https://nioe.github.io/ws-angular_slides/slides/02_Grundlagen.html)
+- [03 Projekt Setup](https://nioe.github.io/ws-angular_slides/slides/03_ProjectSetup.html)
+- [04 Components](https://nioe.github.io/ws-angular_slides/slides/04_Components.html)
+- [05 Architecture](https://nioe.github.io/ws-angular_slides/slides/05_Architecture.html)
+- [06 Templates Grundlagen](https://nioe.github.io/ws-angular_slides/slides/06_Templates_Grundlagen.html)
+- [07 Templates Erweitert](https://nioe.github.io/ws-angular_slides/slides/07_Templates_Erweitert.html)
+- [08 Component Architecture](https://nioe.github.io/ws-angular_slides/slides/08_Component_Architecture.html)
+- [09 Services & HTTP](https://nioe.github.io/ws-angular_slides/slides/09_Services_HTTP.html)
+- [10 Routing](https://nioe.github.io/ws-angular_slides/slides/10_Routing.html)
+- [11 Forms](https://nioe.github.io/ws-angular_slides/slides/11_Forms.html)
+- [12 Testing](https://nioe.github.io/ws-angular_slides/slides/12_Testing.html)
 

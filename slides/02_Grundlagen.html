@@ -4,10 +4,10 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-    <title>reveal.js</title>
+    <title>Angular Workshop | 02 Grundlagen</title>
 
     <link rel="stylesheet" href="../css/reveal.css">
-    <link rel="stylesheet" href="../css/theme/baloise.css">
+    <link rel="stylesheet" href="../css/theme/zuehlke.css">
 
     <!-- Theme used for syntax highlighting of code -->
     <link rel="stylesheet" href="../lib/css/atom-one-dark.css">
@@ -24,7 +24,7 @@
 <body>
 <div class="reveal">
     <div class="slides">
-        <section class="deck-slide" data-background="#E5F3F9">
+        <section class="deck-slide">
             <h1>Grundlagen - Ökosystem</h1>
         </section>
         <section>
@@ -56,7 +56,7 @@
                 </ul>
             </section>
         </section>
-        <section class="deck-slide" data-background="#E5F3F9">
+        <section class="deck-slide">
             <h1>ES6 & Funktionen</h1>
         </section>
         <section>
@@ -349,7 +349,7 @@
              </pre>
             </section>
         </section>
-        <section class="deck-slide" data-background="#E5F3F9">
+        <section class="deck-slide">
             <h1>TypeScript Features</h1>
         </section>
         <section>
@@ -516,13 +516,13 @@
                         private url = "/api";
 
                         createFullUrl(endpoint: number) {
-                        //Type 'number' is not assignable to type 'string'
+                            //Type 'number' is not assignable to type 'string'
                             this.url = endpoint;
                             return 'localhost' + this.url;
                         }
 
                         getCustomerUrl() {
-                            // Argument of type '"customer"' is not
+                            // Argument of type 'string' is not
                             // assignable to parameter of type 'number'.
                             return this.createFullUrl('customer');
                         }
