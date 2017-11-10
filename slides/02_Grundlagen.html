@@ -105,7 +105,9 @@
                     <li>let und const sind block scoped</li>
                     <li>let ist the new var ;-)</li>
                     <li>const ist ähnlich wie das final in Java</li>
-                    <li><span class="warn">Achtung!</span> Objekte oder Arrays können durchaus mutiert werden! (siehe final)</li>
+                    <li><span class="warn">Achtung!</span> Objekte oder Arrays können durchaus mutiert werden! (siehe
+                        final)
+                    </li>
                 </ul>
             </section>
         </section>
@@ -354,9 +356,9 @@
         </section>
         <section>
             <section>
-            <h2>Klassen</h2>
-            <h3>Constructor / shorthand</h3>
-            <pre>
+                <h2>Klassen</h2>
+                <h3>Constructor / shorthand</h3>
+                <pre>
                  <code class="hljs typescript" data-trim contenteditable data-noescape>
                      class CustomerComponent {
                         constructor(private service: Service) {
@@ -571,6 +573,84 @@
                          let addFunc = alias.addFive;
                      </code>
                  </pre>
+            </section>
+        </section>
+        <section class="deck-slide">
+            <h1>node.js & npm</h1>
+        </section>
+        <section>
+            <section>
+                <h2>node.js</h2>
+                <ul>
+                    <li>JavaScript runtime environment</li>
+                    <li>Server Scripting mit JavaScript</li>
+                    <li>Mittlerweile weit verbreitet, Stichwort: Full-Stack JS</li>
+                </ul>
+            </section>
+            <section>
+                <h2>npm</h2>
+                <ul>
+                    <li>Steht für <span class="warn">n</span>ode <span class="warn">p</span>ackage <span class="warn">m</span>anager</li>
+                    <li>Ein Teil von node.js (Wird mitinstalliert)</li>
+                    <li>Vergleichbar mit Maven für Java</li>
+                </ul>
+            </section>
+            <section>
+                <h2>Aufgabe 2.1</h2>
+                <ul>
+                    <li>Installiere node.js auf Deinem Rechner</li>
+                    <li><a href="https://nodejs.org/de/download/" target="_blank">node.js Download-Seite</a></li>
+                    <li>Für Unix-Basierte Plattformen kann die Installation auch über einen Package Manager erfolgen</li>
+                    <ul>
+                        <li>Z.B. HomeBrew für macOS</li>
+                    </ul>
+                </ul>
+            </section>
+            <section>
+                <h3>Version überprüfen</h3>
+                <pre>
+                    <code class="hljs bash" data-trim contenteditable data-noescape>
+                        $> node -v
+                        $> npm -v
+                    </code>
+                </pre>
+                <p>Aktuelle node.js Version: <span class="warn">v8.9.1</span></p>
+                <p>Aktuelle npm version: <span class="warn">5.5.1</span></p>
+            </section>
+        </section>
+        <section class="deck-slide">
+            <h1>Angular CLI</h1>
+        </section>
+        <section>
+            <section>
+                <h2>Angular CLI</h2>
+                <ul>
+                    <li>Command Line Interface für Angular Projekte</li>
+                    <li>Nützliche Commands zum...</li>
+                    <ul>
+                        <li>Erstellen, Builden, Testen und Ausführen von Projekten</li>
+                        <li>Erstellen von Komponenten, Direktiven, Services, etc.</li>
+                        <li>u.v.m &rarr; Siehe <a href="https://github.com/angular/angular-cli">Angular CLI auf GitHub</a></li>
+                    </ul>
+                </ul>
+            </section>
+            <section>
+                <h2>Aufgabe 2.2</h2>
+                <p>Installiere das Angular CLI über npm</p>
+                <pre>
+                    <code class="hljs bash" data-trim contenteditable data-noescape>
+                        $> npm install -g @angular/cli
+                    </code>
+                </pre>
+                <p>Auf <span class="warn">-g</span> achten &rarr; Globale Installation</p>
+            </section>
+            <section>
+                <h2>Testen ob alles geklappt hat</h2>
+                <pre>
+                    <code class="hljs bash" data-trim contenteditable data-noescape>
+                        $> ng help
+                    </code>
+                </pre>
             </section>
         </section>
         <section>
