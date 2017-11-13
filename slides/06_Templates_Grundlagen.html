@@ -36,9 +36,10 @@
                          <h1>{{title}}</h1>
                          <h2>Verschachtelt: {{customer.name}}</h2>
                          <h2>Funktionsaufruf: {{20 + add(2, 5)}}</h2>
-                         <a href="/customer/{{customer.name}}">Hans</a>
+                         <a href="/customer/{{customer.id}}">{{customer.name}}</a>
 
                          customer = {
+                            id: "abc",
                             name: "Hans Muster",
                          };
 
@@ -53,7 +54,8 @@
                 <ul>
                     <li>nutzt Properties oder Methoden der Komponente</li>
                     <li>die Interpolation wird durch den Wert ersetzt</li>
-                    <li>wie der Aufruf der <span class="code">add</span> Funktion zeigt: zwischen den Klammern steht eine <span class="code">Template Expression</span>
+                    <li>wie der Aufruf der <span class="code">add</span> Funktion zeigt: zwischen den Klammern steht
+                        eine <span class="code">Template Expression</span>
                     </li>
                     <li>die Expression wird zuerst evaluiert, in einen String konvertiert und mit anderen Strings
                         verbunden. Zuletzt wird der Wert dem Element zugewiesen.
@@ -80,20 +82,23 @@
                 <h3>Aufgabe 6.1 - Mögliche Lösung</h3>
                 <pre>
                      <code class="hljs html" data-trim contenteditable>
-                         adresse = {
-                            strasse: "Haupstrasse",
-                            nr: "12",
-                            plz: 4002,
-                            ort: "Basel"
-                         };
-                         createAdresse() {
-                            return this.adresse.strasse + " " + this.adresse.nr;
-                         }
+                        address = {
+                            street: 'Musterstrasse',
+                            number: '42',
+                            zip: '3000',
+                            city: 'Bern'
+                        };
 
-                         <ul>
-                             <li>{{adresse.strasse}}</li>
-                         </ul>
-                         <p>{{createAddresse()}}</p>
+                        renderAddress() {
+                            return `${this.address.street} ${this.address.number},
+                                ${this.address.zip} ${this.address.city}`
+                        }
+
+                        <ul>
+                            <li>{{adresse.strasse}}</li>
+                            ...
+                        </ul>
+                        <p>{{renderAddress()}}</p>
                      </code>
                  </pre>
             </section>
@@ -102,11 +107,12 @@
             <section>
                 <h3>Template Expressions</h3>
                 <ul>
-                    <li>in den Interpolation-Klammern befindet sich eine Template Expression</li>
+                    <li>in den Interpolationsklammern befindet sich eine Template Expression, z.B. <span class="code">{{1 + 1}}</span>
+                    </li>
                     <li>ein reduziertes Set von JavaScript</li>
                     <li>keine Assigmnents (=, +=, *=, ...) erlaubt</li>
                     <li>kein <span class="code">new</span></li>
-                    <li>keine Seiteneffekte! (Idempotenz, pure Functions)</li>
+                    <li>keine Seiteneffekte wie <span class="code">++</span> (Idempotenz, pure Functions)</li>
                 </ul>
             </section>
             <section>
@@ -137,7 +143,7 @@
                     <tr>
                         <td>
                             One-way,
-                            Komponente zum View
+                            Komponente zur View
                         </td>
                         <td>
                             <pre>
@@ -201,7 +207,7 @@
                          <button [disabled]="bool">Disabled: {{bool}}</button>
                      </code>
                     <code class="hljs html" data-trim contenteditable>
-                         <address [street]="address.street"></address>
+                         <postal-address [street]="address.street"></postal-address>
                      </code>
                  </pre>
             </section>
@@ -218,12 +224,13 @@
                      <code class="hljs html" data-trim contenteditable>
                          <input [value]="adresse.strasse"/>
                      </code>
-                    <p>... oder die Canonical Form mit dem bind-Präfix</p>
+                </pre>
+                <p>... oder die Canonical Form mit dem bind-Präfix</p>
+                <pre>
                     <code class="hljs html" data-trim contenteditable>
                          <input bind-value="adresse.strasse"/>
                      </code>
                  </pre>
-                <p>Ich präferiere die obere (kürzere) Variante und werde ausschliesslich diese verwenden.</p>
             </section>
         </section>
         <section>
@@ -242,7 +249,8 @@
                 <ul>
                     <li>HTML Attribute initialisieren lediglich DOM Properties</li>
                     <li>DOM Properties können sich ändern, Attribute nicht</li>
-                    <li>Die Bindings in Angular arbeiten ausschliesslich mit DOM Properties und Events, <span class="warn">NICHT</span> mit HTML
+                    <li>Die Bindings in Angular arbeiten ausschliesslich mit DOM Properties und Events, <span
+                            class="warn">NICHT</span> mit HTML
                         Attributen
                     </li>
                 </ul>
@@ -257,10 +265,10 @@
                          <button (click)="createPerson()">Neue Person</button>
                      </code>
                     <code class="hljs html" data-trim contenteditable>
-                         &ltaddress (customEvent)="machWas()"></address>
+                         <postal-address (customEvent)="machWas()"></postal-address>
                      </code>
                     <code class="hljs html" data-trim contenteditable>
-                         &ltpeople (deletePerson)="delete($event)"></people>
+                         <people (deletePerson)="delete($event)"></people>
                      </code>
                  </pre>
             </section>
@@ -275,14 +283,16 @@
                 <h3>Aufgabe 6.3 - Mögliche Lösung</h3>
                 <pre>
                      <code class="hljs html" data-trim contenteditable>
-                         <button (click)="hallo()">Klick</button>
+                         <button (click)="logHello()">Klick mich!</button>
                      </code>
                      <code class="hljs typescript" data-trim contenteditable>
-                         hallo() {
-                            console.log("Hallo Welt");
+                         logHello() {
+                            console.log("Hello");
                          }
                      </code>
-                     <p>... oder die Canonical Form mit dem on-Präfix</p>
+                </pre>
+                <p>... oder die Canonical Form mit dem on-Präfix</p>
+                <pre>
                      <code class="hljs html" data-trim contenteditable>
                          <button on-click="hallo()">Klick</button>
                      </code>
@@ -298,7 +308,9 @@
                             console.log(value);
                          }
                      </code>
-                     <p>... oder den Wert in der Methode auslesen</p>
+                </pre>
+                <p>... oder den Wert in der Methode auslesen</p>
+                <pre>
                       <code class="hljs html" data-trim contenteditable>
                          <input (input)="printEvent($event)">
                          printEvent(event) {
@@ -329,7 +341,7 @@
                 <h3>Aufgabe 6.4 - Event mit Wert</h3>
                 <ul>
                     <li>Fuege ein <span class="code">Input</span> Element hinzu.</li>
-                    <li>Gib jeden Wert, der mit dem Buchstaben "S" oder "s" beginnt auf der Konsole aus.</li>
+                    <li>Gib jeden neuen Wert, auf der Konsole aus, wenn dieser mit dem Buchstaben 's' beginnt.</li>
                 </ul>
             </section>
             <section>
@@ -362,7 +374,7 @@
                 </ul>
             </section>
             <section>
-                <h3>Aufgabe 6.5 - Mögliche Lösung</h3>
+                <h3>Aufgabe 6.5 - Mögliche Lösungen</h3>
                 <pre>
                      <code class="hljs html" data-trim contenteditable>
                          <input [value]="name" (input)="name=$event.target.value">
@@ -371,6 +383,9 @@
                      <code class="hljs typescript" data-trim contenteditable>
                          name = "Hans";
                      </code>
+                </pre>
+                <p>Oder mit einer Funktion in der Komponente:</p>
+                <pre>
                      <code class="hljs html" data-trim contenteditable>
                          <input [value]="name" (input)="fun($event.target.value)">
                          <p>{{name}}</p>
@@ -385,28 +400,31 @@
         <section>
             <section>
                 <h2>Two-way data binding - [()]</h2>
-                <h3>banana-in-a-box | Bananenkiste</h3>
+                <h3>&laquo;banana-in-a-box | Bananenkiste&raquo;</h3>
                 <pre>
                     <code class="hljs html" data-trim contenteditable>
                         <address [(street)]="street"></address>
                     </code>
                 </pre>
                 <ul>
-                    <li>schauen wir später für eigene Bindings im Kapitel Formulare genauer an</li>
-                    <li>intern nur ein <span class="code">Property</span> Binding und ein <span class="code">Event</span> Binding</li>
+                    <li>
+                        intern nur ein <span class="code">Property</span> und ein <span class="code">Event</span>
+                        Binding
+                    </li>
                 </ul>
             </section>
             <section>
                 <h3>Two-way Binding mit NgModel</h3>
                 <pre>
                     <code class="hljs html" data-trim contenteditable>
-                       &ltinput [ngModel]="name"
+                       &lt;input [ngModel]="name"
                               (ngModelChange)="handleChange($event)">
-                       &ltinput [ngModel]="name"
+                       &lt;input [ngModel]="name"
                               (ngModelChange)="name=$event">
+
                        name: string = "Hans";
-                       handleChange(event) {
-                            this.name = event.target.value;
+                       handleChange(newValue) {
+                            this.name = newValue;
                        }
                     </code>
                     <code class="hljs html" data-trim contenteditable>
@@ -414,41 +432,69 @@
                     </code>
                 </pre>
                 <ul>
-                    <li><span class="code">[property]</span>Binding mit einem <span class="code">(propertyChange)</span> Event</li>
+                    <li><span class="code">[property]</span>Binding mit einem <span class="code">(propertyChange)</span>
+                        Event
+                    </li>
                 </ul>
             </section>
             <section>
                 <h3>NgModel in Detail</h3>
                 <ul>
                     <li>benötigt das Modul <span class="code">FormsModule</span></li>
-                    <li>ist eine Kombination aus <span class="code">[ngModel]</span> und <span class="code">(ngModelChange)</span></li>
+                    <li>ist eine Kombination aus <span class="code">[ngModel]</span> und <span class="code">(ngModelChange)</span>
+                    </li>
                     <li>Der Wert steht direkt in der <span class="code">$event</span>-Variable</li>
                     <li>Angular kapselt den Zugriff auf den DOM. Welches Event? Welches Property?</li>
-                    <li>Für eigene Komponenten: <span class="code">ControlValueAccessor</span> Interface implementieren</li>
+                    <li>Für eigene Komponenten: <span class="code">ControlValueAccessor</span> Interface implementieren
+                    </li>
                 </ul>
             </section>
             <section>
                 <h3>Aufgabe 6.6 - NgModel</h3>
                 <ul>
-                    <li>Erstelle ein Two-way data binding mit <span class="code">ngModel</span> für eine <span class="code">Textarea</span> zum Anzeigen einer Notiz <span class="code">note</span>.
+                    <li>Erstelle ein Two-way data binding mit <span class="code">ngModel</span> für eine <span
+                            class="code">Textarea</span> zum Anzeigen einer Notiz <span class="code">note</span>.
                     </li>
                     <li>Nutze die kurze "Bananenschachtel" Syntax.</li>
-                    <li>Erstelle ein <span class="code">p-tag</span> und gebe dort den Text der Variablen <span class="code">note</span> aus.</li>
+                    <li>Erstelle ein <span class="code">p-tag</span> und gebe dort den Text der Variablen <span
+                            class="code">note</span> aus.
+                    </li>
                     <li>Erstelle einen Button um den Text der Notiz auf "Platzhalter" zurück zu setzen.</li>
                 </ul>
             </section>
             <section>
-                <h3>Aufgabe 6.6 - Mögliche Lösung</h3>
+                <h3>Aufgabe 6.6 - Mögliche Lösung (1)</h3>
+                <p>Benötigten Import im Module hinzufügen:</p>
+                <pre>
+                     <code class="hljs typescript" data-trim contenteditable>
+                         import { FormsModule } from '@angular/forms';
+
+                         @NgModule({
+                            ...
+                            imports: [
+                                BrowserModule,
+                                FormsModule
+                            ],
+                            ...
+                         })
+                     </code>
+                </pre>
+            </section>
+            <section>
+                <h3>Aufgabe 6.6 - Mögliche Lösung (2)</h3>
                 <pre>
                      <code class="hljs html" data-trim contenteditable>
-                         &lttextarea [(ngModel)]="note"></textarea>
+                         &lt;textarea [(ngModel)]="note"
+                                   placeholder="Notiz..."></textarea>
+
                          <p>{{note}}</p>
-                         <button (click)="reset()">Reset</button>
+
+                         <button (click)="resetNote()">Reset</button>
                      </code>
                      <code class="hljs typescript" data-trim contenteditable>
-                         note = "Notiz";
-                         reset() {
-                             this.note = "Platzhalter";
+                         note = "";
+                         resetNote() {
+                             this.note = "";
                          }
                      </code>
                 </pre>
@@ -473,14 +519,16 @@
                 <ul>
                     <li>Eine Referenz auf ein DOM Element, oder eine Komponente</li>
                     <li>Im gesamten Template verfügbar</li>
-                    <li>Eine Referenz auf ein Input Element liefert das tatsächliche Element zurück, wie <span class="code">$event.target</span></li>
-                    <li>Alternative syntax: <span class="code">ref-note</span> statt <span class="code">#note</span></li>
+                    <li>Eine Referenz auf ein Input Element liefert das tatsächliche Element zurück, wie <span
+                            class="code">$event.target</span></li>
+                    <li>Alternative syntax: <span class="code">ref-note</span> statt <span class="code">#note</span>
+                    </li>
                 </ul>
             </section>
             <section>
                 <h3>Aufgabe 6.7 - Template Ref Variable</h3>
                 <ul>
-                    <li>Erstelle einen Button und eine Checkbox. Eine Checkbox ist ein <span class="code">Input</span> vom Typ <span class="code">checkbox</span></li>
+                    <li>Erstelle einen Button und eine Checkbox.</li>
                     <li>Die Checkbox soll den Button disablen / enablen</li>
                     <li>Benutze hierfür eine Template Referenz Variable</li>
                     <li>Hint: ein Button hat ein disabled Property</li>
@@ -491,10 +539,10 @@
                 <h3>Aufgabe 6.7 - Mögliche Lösung</h3>
                 <pre>
                      <code class="hljs html" data-trim contenteditable>
-                         &ltinput (change)="btn.disabled=!btn.disabled"
-                            type="checkbox">Disable Button
+                         &lt;input type="checkbox"
+                                (change)="btn.disabled = !btn.disabled">
 
-                         &ltbutton #btn>Button</button>
+                         &lt;button #btn>Button</button>
                      </code>
                 </pre>
             </section>
