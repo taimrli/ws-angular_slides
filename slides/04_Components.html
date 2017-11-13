@@ -43,17 +43,16 @@
                 <h3>Die Klasse</h3>
                 <pre>
                      <code class="hljs typescript" data-trim contenteditable data-noescape>
-                        import {Component} from "@angular/core";
+                        import { Component } from '@angular/core';
 
                         @Component({
-                            selector: 'bv-app',
-                            styleUrls: ['./app.component.scss']
-                            templateUrl: './app.component.html'
+                          selector: 'app-root',
+                          templateUrl: './app.component.html',
+                          styleUrls: ['./app.component.css']
                         })
                         export class AppComponent {
-                            title = "Hallo Welt";
+                          title = 'Hallo Welt';
                         }
-
                      </code>
                  </pre>
             </section>
@@ -75,7 +74,7 @@
                 <pre>
                      <code class="hljs typescript" data-trim contenteditable>
                         @Component({
-                            selector: 'bv-app',
+                            selector: 'app-root',
                             styles: [`.h1 {
                                 font-size: 1.2 rem;
                             }`]
@@ -90,7 +89,7 @@
                 <ul>
                     <li>Baue die bestehende Komponente auf Inline um</li>
                     <li>Nutze ein inline Template mit einer H1-Überschrift</li>
-                    <li>Style die Überschrift in einer <span style="color: #FF00FF;">schönen Farbe #FF00FF</span></li>
+                    <li>Style die Überschrift in einer <span style="color: #FF00FF;">schönen Farbe, z.B. #FF00FF</span></li>
                     <li>Denke an die Backticks und die Propertynamen</li>
                 </ul>
             </section>
@@ -102,11 +101,11 @@
 
                         @Component({
                             selector: 'app-root',
-                            template: `<h1>Schöne Farbe</h1>`,
+                            template: `<h1>{{title}}</h1>`,
                             styles: [`h1 {color: #FF00FF;}`]
                         })
                         export class AppComponent {
-                            title = 'app works!';
+                            title = 'Schöner Titel';
                         }
                      </code>
                  </pre>
