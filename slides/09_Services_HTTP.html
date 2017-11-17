@@ -404,6 +404,17 @@
             </section>
             <section>
                 <h3>Die Async Pipe - | async</h3>
+                <ul>
+                    <li>Erleichtert den Umgang mit <span class="code">Observables</span> &amp; <span class="code">Promises</span></li>
+                    <li>Hilft mögliche Memory-Leaks zu verhindern, in dem sie Observables automatisch unsubscribed</li>
+                    <li>Verkürzt den eigenen Code (kein Reagieren auf Änderungen)</li>
+                    <li>Einen guten Artikel zum Thema findest Du
+                        <a href="https://blog.thoughtram.io/angular/2017/02/27/three-things-you-didnt-know-about-the-async-pipe.html" target="_blank">hier</a>
+                    </li>
+                </ul>
+            </section>
+            <section>
+                <h3>Die Async Pipe - | async (2)</h3>
                 <pre>
                     <code class="hljs typescript" data-trim contenteditable>
                         movies: Observable&ltMovie[]>;
@@ -429,7 +440,7 @@
                     <li>wie eingangs erwähnt unterstützt Angular die reaktive Programmierung</li>
                     <li>diese wird häufig mit einem Uni-Directional Data Flow umgesetzt</li>
                     <li>hier bietet sich das Redux-Pattern an</li>
-                    <li>eine sehr gute Library ist ngrx/store</li>
+                    <li>eine sehr gute Library ist <a href="https://github.com/ngrx/platform" target="_blank">ngrx/store</a></li>
                 </ul>
             </section>
             <section>
