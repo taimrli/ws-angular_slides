@@ -44,7 +44,8 @@
                 <li>Ganzer Applikations-State in einem gemeinsamen Store</li>
                 <li>Somit sehr einfach zu speichern (local storage) und sehr gut zum debuggen.</li>
                 <li>Kein &laquo;Durchreichen&raquo; von Daten</li>
-                <li>Gute Angular Implementation: <a href="https://github.com/ngrx/platform" target="_blank">ngrx</a></li>
+                <li>Gute Angular Implementation: <a href="https://github.com/ngrx/platform" target="_blank">ngrx</a>
+                </li>
             </ul>
         </section>
         <section>
@@ -68,14 +69,18 @@
                 <ul>
                     <li>Keine klaren Vorgaben wie bei Java (Packages)</li>
                     <li>Deshalb gilt: Einfach beginnen!</li>
-                    <li>Erst komplexere Strukturen resp. Module aufbauen, wenn man sie wirklich braucht &rarr; YAGNI-Prinzip</li>
+                    <li>Erst komplexere Strukturen resp. Module aufbauen, wenn man sie wirklich braucht &rarr;
+                        YAGNI-Prinzip
+                    </li>
                 </ul>
             </section>
             <section>
                 <h2>Wie gliedere ich meine App?</h2>
                 <h3>Ort der Tests</h3>
                 <ul>
-                    <li>Auch da: Keine klaren Vorgaben wie bei Java (<span class="code">main</span> / <span class="code">test</span>)</li>
+                    <li>Auch da: Keine klaren Vorgaben wie bei Java (<span class="code">main</span> / <span
+                            class="code">test</span>)
+                    </li>
                     <li>Es hat sich aber bewährt, die Tests dirket bei der Klasse anzulegen.</li>
                     <li>Trenne nicht, was zusammen gehört.</li>
                     <li>Macht es einfacher, Komponenten wiederzuverwenden</li>
@@ -85,10 +90,28 @@
                 <h2>Wie gliedere ich meine App?</h2>
                 <h3>Styling</h3>
                 <ul>
-                    <li>Globale Stylings sollten im <span class="code">styles.(s)css</span> im <span class="code">/src</span> Verzeichnis hinterlegt werden.</li>
-                    <li>Stlings die nur eine Komponente betreffen (z.B. Button) werden in der jeweiligen Komponente abgelegt &rarr; Wiederverwendung!</li>
+                    <li>Globale Stylings sollten im <span class="code">styles.(s)css</span> im <span
+                            class="code">/src</span> Verzeichnis hinterlegt werden.
+                    </li>
+                    <li>Stlings die nur eine Komponente betreffen (z.B. Button) werden in der jeweiligen Komponente
+                        abgelegt &rarr; Wiederverwendung!
+                    </li>
                 </ul>
             </section>
+        </section>
+        <section>
+            <h2>JIT vs AOT</h2>
+            <h3>Just-in-Time vs Ahead-of-Time Compilation</h3>
+            <ul>
+                <li>JIT für lokale Entwicklung (<span class="code">ng serve</span>, <span class="code">ng compile</span>) </li>
+                <li>AOT für Produktions-Build (<span class="code">ng serve --aot</span>, <span class="code">ng compile --aot</span>)
+                    <ul>
+                        <li>Kleiner, da Angular Compiler nicht mitgeliefert werden muss</li>
+                        <li>Kürzeres Bootstrapping, da Code direkt ausgeführt werden kann</li>
+                    </ul>
+                </li>
+                <li>Mehr in der <a href="https://angular.io/guide/aot-compiler" target="_blank">Angular Doku</a></li>
+            </ul>
         </section>
     </div>
 </div>
