@@ -95,7 +95,7 @@
                         }
 
                         <ul>
-                            <li>{{adresse.strasse}}</li>
+                            <li>{{address.street}}</li>
                             ...
                         </ul>
                         <p>{{renderAddress()}}</p>
@@ -233,7 +233,7 @@
                  </pre>
             </section>
         </section>
-        <section>
+        <!--<section>
             <section>
                 <h2>HTML und DOM</h2>
                 <ul>
@@ -255,7 +255,7 @@
                     </li>
                 </ul>
             </section>
-        </section>
+        </section>-->
         <section>
             <section>
                 <h2>Event binding - (event)</h2>
@@ -340,7 +340,7 @@
             <section>
                 <h3>Aufgabe 6.4 - Event mit Wert</h3>
                 <ul>
-                    <li>Fuege ein <span class="code">Input</span> Element hinzu.</li>
+                    <li>Füge ein <span class="code">Input</span> Element hinzu.</li>
                     <li>Gib jeden neuen Wert, auf der Konsole aus, wenn dieser mit dem Buchstaben 's' beginnt.</li>
                 </ul>
             </section>
@@ -361,11 +361,10 @@
             </section>
             <section>
                 <h3>Aufgabe 6.5 - Two-way data binding</h3>
+                Erstelle ein selbst kreiertes Two-way Data Binding für ein <span class="code">Input</span> Feld.
                 <ul>
-                    <li>Erstelle ein selbst kreiertes Two-way Data Binding für ein <span class="code">Input</span> Feld.
-                    </li>
                     <li>Erstelle ein Input Feld mit einem Binding für einen String, z. B. "name"</li>
-                    <li>Erstelle einen Textblock <span class="code">"p-Tag"</span> der den Wert aus dem Eingabefeld
+                    <li>Erstelle einen Textblock <span class="code">"p-tag"</span> der den Wert aus dem Eingabefeld
                         anzeigt.
                     </li>
                     <li>Nutze ein <span class="code">Property</span>-Binding, ein <span class="code">Event</span>-Binding
@@ -387,12 +386,12 @@
                 <p>Oder mit einer Funktion in der Komponente:</p>
                 <pre>
                      <code class="hljs html" data-trim contenteditable>
-                         <input [value]="name" (input)="fun($event.target.value)">
+                         <input [value]="name" (input)="fn($event.target.value)">
                          <p>{{name}}</p>
                      </code>
                      <code class="hljs typescript" data-trim contenteditable>
                          name = "Hans";
-                         fun(value: string) { this.name = value;}
+                         fn(value: string) { this.name = value;}
                      </code>
                  </pre>
             </section>
@@ -444,7 +443,7 @@
                     <li>ist eine Kombination aus <span class="code">[ngModel]</span> und <span class="code">(ngModelChange)</span>
                     </li>
                     <li>Der Wert steht direkt in der <span class="code">$event</span>-Variable</li>
-                    <li>Angular kapselt den Zugriff auf den DOM. Welches Event? Welches Property?</li>
+                    <li>Angular kapselt den Zugriff auf den DOM.</li>
                     <li>Für eigene Komponenten: <span class="code">ControlValueAccessor</span> Interface implementieren
                     </li>
                 </ul>
@@ -452,8 +451,8 @@
             <section>
                 <h3>Aufgabe 6.6 - NgModel</h3>
                 <ul>
-                    <li>Erstelle ein Two-way data binding mit <span class="code">ngModel</span> für eine <span
-                            class="code">Textarea</span> zum Anzeigen einer Notiz <span class="code">note</span>.
+                    <li>Erstelle ein Two-way data binding mit <span class="code">ngModel</span> für eine
+                        <span class="code">Textarea</span> zum Anzeigen einer Notiz <span class="code">note</span>.
                     </li>
                     <li>Nutze die kurze "Bananenschachtel" Syntax.</li>
                     <li>Erstelle ein <span class="code">p-tag</span> und gebe dort den Text der Variablen <span
@@ -542,14 +541,12 @@
                          &lt;input type="checkbox"
                                 (change)="btn.disabled = !btn.disabled">
 
-                         &lt;button #btn>Button</button>
+                         &lt;button #btn>Button&lt;/button>
                      </code>
                 </pre>
             </section>
         </section>
-        <section>
-            <h2>Das war easy</h2>
-            <img src="../img/questions_answered_here.jpg" width="40%">
+        <section class="img-slide" data-background="../img/questions.jpg">
         </section>
     </div>
 </div>

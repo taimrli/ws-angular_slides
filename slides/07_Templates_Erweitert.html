@@ -103,12 +103,12 @@
                         &lt;/div>
                      </code>
                     <code class="hljs typescript" data-trim contenteditable>
-                         val: string = "";
-                         setting: string = "Einfach";
+                         extendedValue: string = "";
+                         mode: string = "Einfach";
                     </code>
                  </pre>
             </section>
-            <section>
+            <!--<section>
                 <h3>*ngIf - kurze vs. lange Syntax</h3>
                 <pre>
                     <code class="hljs html" data-trim contenteditable>
@@ -126,7 +126,7 @@
                         &lt/template>
                     </code>
                 </pre>
-            </section>
+            </section>-->
         </section>
         <section>
             <section>
@@ -142,7 +142,8 @@
                     </code>
                     <code class="hljs html" data-trim contenteditable>
                         &ltdiv *ngFor="let item of items; let idx = index;">
-                            <my-item-view [item]="item"></my-item-view>
+                            <my-item-view [item]="item"
+                                          [item-index]="idx"></my-item-view>
                         &lt/div>
                     </code>
                 </pre>
@@ -216,7 +217,7 @@
                     </code>
                 </pre>
             </section>
-            <section>
+            <!--<section>
                 <h3>*ngFor - kurze vs. lange Syntax</h3>
                 <pre>
                     <code class="hljs html" data-trim contenteditable>
@@ -225,7 +226,7 @@
                         &lt/div>
                     </code>
                     <code class="hljs html" data-trim contenteditable>
-                        &lttemplate ngFor let--item let-idx="index"
+                        &lttemplate ngFor let&#45;&#45;item let-idx="index"
                             [ngForOf]="items">
                             &ltdiv>
                                 <my-item-view [item]="item"></my-item-view>
@@ -233,7 +234,7 @@
                         &lt/template>
                     </code>
                 </pre>
-            </section>
+            </section>-->
         </section>
         <section>
             <section>
@@ -296,8 +297,7 @@
                 <p>für mehrere Styles die <span class="code">ngStyle Directive</span></p>
                 <pre>
                     <code class="hljs html" data-trim contenteditable>
-                        &ltspan [ngStyle]="{
-                          'font-size': pers.isVip ? 'bold' : 'normal'
+                        &ltspan [ngStyle]="{'font-weight': pers.isVip?'bold':'normal'
                           'color': pers.isVip ? 'red' : 'blue'}">
                         &lt/span>
                     </code>
@@ -388,12 +388,15 @@
                         @Pipe({name: 'phonenumber'})
                         export class PhoneNumberPipe implements PipeTransform {
                           transform(phoneNumber: string, countryCode: string): string {
-                            let parts = phoneNumber.match(/^(\d{3})(\d{3})(\d{2})(\d{2})$/);
+                            let parts = phoneNumber
+                                .match(/^(\d{3})(\d{3})(\d{2})(\d{2})$/);
                             if (!parts) return phoneNumber;
-                            let formatted = `${parts[1]} ${parts[2]} ${parts[3]} ${parts[4]}`;
+                            let formatted =
+                                `${parts[1]} ${parts[2]} ${parts[3]} ${parts[4]}`;
 
                             if (countryCode) {
-                              formatted = `+${countryCode} ${formatted.substring(1)}`;
+                              formatted =
+                                `+${countryCode} ${formatted.substring(1)}`;
                             }
 
                             return formatted;
@@ -418,9 +421,7 @@
                 </code>
             </pre>
         </section>
-        <section>
-            <h2>Noch etwas offen?</h2>
-            <img src="../img/noquestions.jpg">
+        <section class="img-slide" data-background="../img/questions.jpg">
         </section>
     </div>
 </div>

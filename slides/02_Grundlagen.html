@@ -103,7 +103,7 @@
                 <ul>
                     <li>var ist function scoped</li>
                     <li>let und const sind block scoped</li>
-                    <li>let ist the new var ;-)</li>
+                    <li>let is the new var ;-)</li>
                     <li>const ist ähnlich wie das final in Java</li>
                     <li><span class="warn">Achtung!</span> Objekte oder Arrays können durchaus mutiert werden! (siehe
                         final)
@@ -168,7 +168,7 @@
                 </pre>
             </section>
             <section>
-                <h4>Spread Operator</h4>
+                <h4>Array Spread Operator</h4>
                 <pre>
                      <code class="hljs javascript" data-trim contenteditable data-noescape>
                          // Arrays kopieren
@@ -188,6 +188,28 @@
                          // Wed Mar 29 2017
                         </span>
                      </code>
+                </pre>
+            </section>
+            <section>
+                <h4>Object Spread Operator</h4>
+                <ul>
+                    <li>Objekte kopieren und mergen</li>
+                    <li>Hervorragend geeignet, um Immutability zu gewährleisten</li>
+                </ul>
+                <pre>
+                    <code class="hljs javascript" data-trim contenteditable data-noescape>
+                        var obj1 = { foo: 'bar', x: 42 };
+                        var obj2 = { foo: 'baz', y: 13 }
+
+                        <span class="fragment">
+                        var clonedObj = { ...obj1 };
+                        // Object { foo: "bar", x: 42 }
+                        </span>
+                        <span class="fragment">
+                        var mergedObj = { ...obj1, ...obj2, z: 21 };
+                        // Object { foo: "baz", x: 42, y: 13, z: 21 }
+                        </span>
+                    </code>
                 </pre>
             </section>
         </section>
@@ -247,7 +269,7 @@
         <section>
             <section>
                 <h3>Funktionen als First Class Objekte</h3>
-                <h4>Zuweisung</h4>
+                <h4>Zuweisung (1)</h4>
                 <pre>
                      <code class="hljs javascript" data-trim contenteditable data-noescape>
                          let func = function() {
@@ -312,10 +334,12 @@
                            callback(name + ' ' + lastName);
                          }
 
+                         // old way
                          getFullName("Hans", function(result) {
                             return renderCustomer(result);
                          });
                          <span class="fragment">
+                         // new way
                          getFullName("Hans", renderCustomer);
                          </span>
                      </code>
@@ -364,7 +388,7 @@
                         constructor(private service: Service) {
                         }
 
-                        findAll() {
+                        findAll(): Customer[] {
                             return this.service.findAll();
                         }
                      }
@@ -377,18 +401,18 @@
                      <code class="hljs typescript" data-trim contenteditable data-noescape>
                          class CustomerService {
                             private _customers: Customer[] = [{name: "Hans"}];
-                            get customers() {
+                            get customers(): Customer[] {
                                 return this._customers;
                             }
-                            set customers(customers: Customer[]) {
+                            set customers(customers: Customer[]): void {
                                 this._customers = customers;
                             }
 
-                            extractName(customer: Customer) {
+                            extractName(customer: Customer): string {
                                 return customer.name;
                             }
 
-                            getCustomerNames() {
+                            getCustomerNames(): string[] {
                                 return this.customers.map(extractName);
                             }
                          }
@@ -515,7 +539,7 @@
             <pre>
                  <code class="hljs typescript" data-trim contenteditable data-noescape>
                      class Service {
-                        private url = "/api";
+                        private url = "/api"; // implicitly typed as string
 
                         createFullUrl(endpoint: number) {
                             //Type 'number' is not assignable to type 'string'
@@ -614,8 +638,8 @@
                         $> npm -v
                     </code>
                 </pre>
-                <p>Aktuelle node.js Version: <span class="warn">v8.9.1</span></p>
-                <p>Aktuelle npm version: <span class="warn">5.5.1</span></p>
+                <p>Aktuelle node.js Version: <span class="warn">v8.9.4 (LTS)</span></p>
+                <p>Aktuelle npm version: <span class="warn">5.6.0</span></p>
             </section>
         </section>
         <section class="deck-slide">
@@ -663,9 +687,7 @@
                 <li><a href="https://basarat.gitbooks.io/typescript/content/">TypeScript Deep Dive - Buch</a></li>
             </ul>
         </section>
-        <section>
-            <h2>Question Time!</h2>
-            <img src="../img/dumb_questions.jpg" width="80%">
+        <section class="img-slide" data-background="../img/questions.jpg">
         </section>
     </div>
 </div>
