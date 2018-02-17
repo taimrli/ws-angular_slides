@@ -364,21 +364,33 @@
                 </ul>
             </section>
             <section>
+                <h3>Fallstricke</h3>
+                <ul>
+                    <li>Backend Calls: Protractor wartet leider nicht automatisch</li>
+                </ul>
+                <pre>
+                    <code class="hljs typescript" data-trim contenteditable>
+                        const conditions = protractor.ExpectedConditions;
+                        browser.wait(conditions.visibilityOf($('.abc')), 5000);
+                    </code>
+                </pre>
+            </section>
+            <section>
                 <h3>Aufgabe 12.4 - e2e Testing</h3>
                 <ul>
                     <li>Branch: <span class="code">12_Testing_4</span></li>
-                    <li>Vervollständige die Tests in <code>movies.e2e-spec.ts</code></li>
+                    <li>Vervollständige die Tests in <code>movies.e2e-spec.ts</code> und <code>visitors.e2e-spec.ts</code></li>
                     <li>Benutze das PageObject sinnvoll als Abstraktion zu Protractor</li>
                 </ul>
                 <pre>
                     <code class="hljs typescript" data-trim contenteditable>
                         // tests starten
-                        $> ng e2e
+                        $> npm run e2e
                     </code>
                 </pre>
             </section>
             <section>
-                <h3>Aufgabe 12.4 - Mögliche Lösung</h3>
+                <h3>Aufgabe 12.4 - Mögliche Lösung (nicht vollständig)</h3>
                 <ul>
                     <li>Branch: <span class="code">12_Testing_5</span></li>
                     <li>Wenn ihr eure Änderungen <span class="warn">verwerfen</span> möchtet und direkt zur Lösung
